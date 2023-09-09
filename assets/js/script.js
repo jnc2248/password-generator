@@ -18,17 +18,15 @@ var generatePassword = function () {
     return;
   };
 
-  var upperSelect = window.confirm("Include uppercase letters? Press okay for yes or cancel for no.");
+  var upperSelect = window.confirm("Include uppercase letters? Press okay for 'yes' or cancel for 'no'.");
 
-  var numSelect = window.confirm("Include numbers? Press Okay for yes or Cancel for no.");
+  var numSelect = window.confirm("Include numbers? Press okay for 'yes' or cancel for 'no'.");
 
-  var specialSelect = window.confirm("Include special characters? Ex: ?!,.&#^");
+  var specialSelect = window.confirm("Include special characters? Ex: ?!,&#^. Press okay for 'yes' or cancel for 'no'.");
 
   if (upperSelect && numSelect && specialSelect) {
     combined = combined.concat(lower, upper, numeric, specialChar);
   };
-
-  console.log(combined);
 
 };
 
@@ -39,7 +37,7 @@ var generatePassword = function () {
 
 
 // Write password to the #password input
-function writePassword() {
+var buttonPress = function() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
 
@@ -48,5 +46,5 @@ function writePassword() {
 };
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword());
+generateBtn.addEventListener("click", buttonPress);
 
