@@ -4,6 +4,7 @@ var numeric = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0];
 var specialChar = ["!", "(", ")", "-", ".", "?", "[", "]", "_", "~", ";", ":", "@", "#", "$", "%", "^", "&", "*", "=", "+"];
 var combined = [];
 var generateBtn = document.querySelector("#generate");
+var copyButton = document.querySelector(".card-body");
 
 var buttonPress = function () {
   var lengthSelect = window.prompt("Please enter desired length for password. Must be between 8-128.")
@@ -19,6 +20,8 @@ var buttonPress = function () {
   var numSelect = window.confirm("Include numbers? Press okay for 'yes' or cancel for 'no'.");
 
   var specialSelect = window.confirm("Include special characters? Ex: ?!,&#^. Press okay for 'yes' or cancel for 'no'.");
+
+  window.alert("Click text area to copy generated password to clipboard!");
 
   if (upperSelect && numSelect && specialSelect) {
     combined = combined.concat(lower, upper, numeric, specialChar);
@@ -57,5 +60,12 @@ var buttonPress = function () {
   genPassword(lengthSelect);
 };
 
+var copyPress = function() {
+  document.querySelector("#password").select();
+  document.execCommand('copy');
+};
+
 generateBtn.addEventListener("click", buttonPress);
+
+copyButton.addEventListener("click", copyPress);
 
