@@ -38,15 +38,13 @@ var buttonPress = function () {
     combined = combined.concat(lower);
   };
 
-  console.log(combined);
-
   function genPassword(lengthSelect) {
     var combinedStr = combined.join("");
-    var characters = combinedStr;
+    var choices = combinedStr;
     var result = '';
     var counter = 0;
     while (counter < lengthSelect) {
-      result += characters.charAt(Math.floor(Math.random() * characters.length));
+      result += choices.charAt(Math.floor(Math.random() * choices.length));
       counter += 1;
     }
 
@@ -54,13 +52,9 @@ var buttonPress = function () {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
-
-    console.log(combinedStr);
   };
 
   genPassword(lengthSelect);
-  
-
 };
 
 generateBtn.addEventListener("click", buttonPress);
