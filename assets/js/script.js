@@ -45,24 +45,21 @@ var buttonPress = function () {
     var finalString = initString.replace(",","");
     var characters = finalString;
     var result = '';
-    var charactersLength = characters.length;
     var counter = 0;
     while (counter < lengthSelect) {
-      result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      result += characters.charAt(Math.floor(Math.random() * characters.length));
       counter += 1;
     }
-    
-    console.log(result);
+
+    var password = result;
+    var passwordText = document.querySelector("#password");
+
+    passwordText.value = password;
   };
 
-  console.log(genPassword(lengthSelect));
+  genPassword(lengthSelect);
 
 };
-
-var password = buttonPress;
-var passwordText = document.querySelector("#password");
-
-passwordText.value = password;
 
 generateBtn.addEventListener("click", buttonPress);
 
