@@ -41,9 +41,8 @@ var buttonPress = function () {
   console.log(combined);
 
   function genPassword(lengthSelect) {
-    var initString = combined.toString();
-    var finalString = initString.replace(",","");
-    var characters = finalString;
+    var combinedStr = combined.join("");
+    var characters = combinedStr;
     var result = '';
     var counter = 0;
     while (counter < lengthSelect) {
@@ -55,9 +54,12 @@ var buttonPress = function () {
     var passwordText = document.querySelector("#password");
 
     passwordText.value = password;
+
+    console.log(combinedStr);
   };
 
   genPassword(lengthSelect);
+  
 
 };
 
